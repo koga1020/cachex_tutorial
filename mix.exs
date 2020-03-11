@@ -22,6 +22,7 @@ defmodule CachexTutorial.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
+      {:cachex, "~> 3.2.0"},
       {:ecto_sql, "~> 3.3.4"},
       {:postgrex, ">= 0.0.0"}
     ]
