@@ -7,6 +7,7 @@ defmodule CachexTutorial.Application do
 
   def start(_type, _args) do
     children = [
+      {CachexTutorial.Repo, []}
       # Starts a worker by calling: CachexTutorial.Worker.start_link(arg)
       # {CachexTutorial.Worker, arg}
     ]
