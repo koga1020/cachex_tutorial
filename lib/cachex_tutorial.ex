@@ -1,18 +1,16 @@
 defmodule CachexTutorial do
-  @moduledoc """
-  Documentation for `CachexTutorial`.
-  """
+  def list_people() do
+    Cachex.get!(:my_cache, :people)
+    |> case do
+      nil ->
+        people = CachexTutorial.DB.list_people()
 
-  @doc """
-  Hello world.
+        Cachex.put(:my_cache, :people, people)
 
-  ## Examples
+        people
 
-      iex> CachexTutorial.hello()
-      :world
-
-  """
-  def hello do
-    :world
+      people ->
+        people
+    end
   end
 end

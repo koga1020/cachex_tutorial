@@ -7,7 +7,11 @@ defmodule CachexTutorial.Application do
 
   def start(_type, _args) do
     children = [
-      {CachexTutorial.Repo, []}
+      {CachexTutorial.Repo, []},
+      %{
+        id: :my_cache_id,
+        start: {Cachex, :start_link, [:my_cache, []]}
+      }
       # Starts a worker by calling: CachexTutorial.Worker.start_link(arg)
       # {CachexTutorial.Worker, arg}
     ]
